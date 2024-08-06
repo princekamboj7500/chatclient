@@ -1,0 +1,17 @@
+{
+    "name": "rafcom/chatclient",
+    "description": "This is a chat client package",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Rafcom\\Chatclient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Prince Kamboj",
+            "email": "princekamboj7500@gmail.com"
+        }
+    ],
+    "require": {}
+}
