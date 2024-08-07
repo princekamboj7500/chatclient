@@ -2,7 +2,6 @@
     "name": "rafcom/chatclient",
     "description": "This is a chat client package",
     "type": "library",
-    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Rafcom\\Chatclient\\": "src/"
