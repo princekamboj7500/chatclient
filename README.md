@@ -1,1 +1,1 @@
-# laravel chat app package
+# Steps to install chat app
