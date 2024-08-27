@@ -31,6 +31,7 @@ export default {
             this.SetAttachedFilesData({AttachedFiles: data.AttachedFiles});
         }).catch(error => {
             console.error("Error fetching in data:", error);
+            this.$router.push({ name: 'login' });
         });
         
         window.Echo.private('chat')

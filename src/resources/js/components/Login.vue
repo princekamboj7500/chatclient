@@ -54,7 +54,9 @@
                       </div>
   
                       <div>
-                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Sign in</button>
+                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit" :disabled="loading">Sign in
+                          <span v-if="loading" class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -84,6 +86,7 @@
         password: 'password', // Set default password value
         remember: false,
         validationErrors:{},
+        loading: false
       };
     },
     mounted() {
@@ -94,6 +97,7 @@
         SetOnlineUser: 'userstatus/SetOnlineUser'
       }),
       login() {
+        this.loading = true;
         const post_data = { email: this.email, password: this.password };
         axios.post('/api/login', post_data).then(response => {
           console.log("api response => ",response.status);
@@ -103,8 +107,11 @@
             this.$router.push({ name: 'dashboard'});
           }else{
             console.log("There is some error in api call");
+            alert("There is some error in api call")
           }
+          this.loading = false;
         }).catch(({response})=>{
+          this.loading = false;
           if(response.status===422){
             this.validationErrors = response.data.data
           }else{
